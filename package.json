@@ -1,0 +1,25 @@
+{
+  "name": "clapper",
+  "version": "1.0.0",
+  "description": "Turn hue lights into clap on lights",
+  "keywords": [
+    "tessel",
+    "clap",
+    "lights",
+    "hue"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ambient-attx4": "*",
+    "node-hue-api": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=0.6.x"
+  },
+  "author": "walkerrandolphsmith@gmail.com",
+  "license": "ISC"
+}
