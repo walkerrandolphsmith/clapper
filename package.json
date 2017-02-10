@@ -1,5 +1,6 @@
 {
   "name": "clapper",
+  "repository": "github.com/walkerrandolphsmith/clapper.git",
   "version": "1.0.0",
   "description": "Turn hue lights into clap on lights",
   "keywords": [

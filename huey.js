@@ -1,5 +1,5 @@
 var toggleLight = function() {
-    var config = require('./../env.json');
+    var config = require('./env.json');
     var hue = require("node-hue-api");
     var HueApi = hue.HueApi;
     var lightState = hue.lightState;
