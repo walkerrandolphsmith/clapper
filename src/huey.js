@@ -1,4 +1,4 @@
-module.exports = function() {
+var toggleLight = function() {
     var config = require('./../env.json');
     var hue = require("node-hue-api");
     var HueApi = hue.HueApi;
@@ -6,7 +6,6 @@ module.exports = function() {
 
     var BEDROOM_LIGHT = config.BEDROOM_LIGHT;
     var api = new HueApi(config.HUE_HOST, config.HUE_USER);
-
     var state = lightState.create();
 
     var toggle = (newState) => api
@@ -19,3 +18,6 @@ module.exports = function() {
         .then(newState => toggle(newState))
         .done();
 };
+
+module.exports = toggleLight;
+
