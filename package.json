@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ambient-attx4": "*",
+    "ambient-attx4": "^0.2.11",
     "node-hue-api": "^2.4.1"
   },
   "engines": {
