@@ -1,23 +1,21 @@
-var toggleLight = function() {
-    var config = require('./env.json');
-    var hue = require("node-hue-api");
-    var HueApi = hue.HueApi;
-    var lightState = hue.lightState;
+var hue = require("node-hue-api");
+var map = require('lodash.map');
+var getConfig = require('./getConfig');
+var toggleLight = require('./toggleLight');
+var config = require('./env.json');
 
-    var BEDROOM_LIGHT = config.BEDROOM_LIGHT;
-    var api = new HueApi(config.HUE_HOST, config.HUE_USER);
-    var state = lightState.create();
+var api = new hue.HueApi(config.HUE_HOST, config.HUE_USER);
+var lightId;
 
-    var toggle = (newState) => api
-        .setLightState(BEDROOM_LIGHT, state[newState]())
-        .done();
+var handleConfigSideEffects = (config) => { api = config.api; lightId = config.lightId };
 
-    api.lightStatus(BEDROOM_LIGHT)
-        .then(status => !status.state.on)
-        .then(newState => newState ? 'on' : 'off')
-        .then(newState => toggle(newState))
-        .done();
-};
+var i = 0;
+var handleError = (error) => i++ < 5 ? retry() : '';
 
-module.exports = toggleLight;
+var connectedToggleLight = () => toggleLight(api, lightId, handleError); 
 
+var retry = () => getConfig(config.HUE_USER, config.BEDROOM_LIGHT)
+    .then(handleConfigSideEffects)
+    .then(connectedToggleLight);
+
+module.exports = connectedToggleLight;
