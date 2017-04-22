@@ -2,7 +2,7 @@ var hue = require("node-hue-api");
 var map = require('lodash.map');
 var getConfig = require('./getConfig');
 var toggleLight = require('./toggleLight');
-var config = require('./env.json');
+var config = require('./../env.json');
 
 var api = new hue.HueApi(config.HUE_HOST, config.HUE_USER);
 var lightId;

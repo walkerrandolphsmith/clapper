@@ -1,7 +1,7 @@
 var tessel = require('tessel');
 var ambientLib = require('ambient-attx4');
 var ambient = ambientLib.use(tessel.port['A']);
-var toggleLight = require('./huey');
+var toggleLight = require('./src/index');
 
 var triggerVal = 0.2;
 
