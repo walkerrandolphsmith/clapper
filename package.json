@@ -1,27 +1,27 @@
 {
   "name": "clapper",
-  "repository": "github.com/walkerrandolphsmith/clapper.git",
-  "version": "1.0.0",
-  "description": "Turn hue lights into clap on lights",
-  "keywords": [
-    "tessel",
-    "clap",
-    "lights",
-    "hue"
-  ],
+  "version": "0.0.0",
+  "description": "turn your Hue lights into clap on lights with Tessel",
   "main": "index.js",
-  "scripts": {
-    "start": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {
+    "example": "examples"
   },
   "dependencies": {
     "ambient-attx4": "^0.2.11",
     "lodash.map": "^4.6.0",
     "node-hue-api": "^2.4.1"
   },
-  "engines": {
-    "node": ">=0.6.x"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "walkerrandolphsmith@gmail.com",
-  "license": "ISC"
+  "repository": "git://github.com/walkerrandolphsmith/clapper.git",
+  "keywords": [
+    "Tessel",
+    "tessel",
+    "clap",
+    "lights",
+    "hue"
+  ],
+  "license": "MIT"
 }
