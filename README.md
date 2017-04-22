@@ -14,15 +14,15 @@ Turn your Hue lights into clap on lights with Tessel.
 
 https://www.developers.meethue.com/documentation/getting-started
 
-1. Find the IP address of your Hue Bridge by running `node ./getAddress.js`
+1. Find the IP address of your Hue Bridge by running `node ./setup/getAddress.js`
 2. Navigate to the following url in a web broswer `http://<your-ip>/debug/clip.html`
-3. Make a POST to the url `/api/` with the following post
+3. Make a POST to the url `/api/` with the following post to get a userId
 ```
 {"devicetype":"my_hue_app#iphone clapper"}
 ```
 4. Get the id of the light you want to turn into a clapper by running
- `node ./setup/index` The results should contain the lights known by the bridge and we want to 
- grab the `uniqueid`.
+ `node ./setup/getLightId.js <your-userId>` The results should contain the lights known by the bridge and we want to 
+ grab the `uniqueid` with the format "XX:XX:XX:XX:XX:XX:XX:XX-XX".
 
 
 ### Configure clapper
