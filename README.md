@@ -10,7 +10,7 @@ Turn your Hue lights into clap on lights with Tessel.
 1. Change directory into this project.
 1. Run `npm install`
 
-### Configure Hue Brdige
+### Configure Hue Bridge
 
 https://www.developers.meethue.com/documentation/getting-started
 
@@ -26,9 +26,8 @@ https://www.developers.meethue.com/documentation/getting-started
 
 
 ### Configure clapper
-We need to put the IP address (1), userId (3) and light (4) found in Configure HueBridge section
-into a file:
-Create a `env.json` file at the root of this repo
+Now using the `username` and `lightId` from steps 3 and 4 in Configure Hue Bridge
+run `node ./setup/ <your-userId> <your-lightId>` to generate a `env.json` file like the one shown below:
 ```
 {
   "HUE_HOST": "X.X.X.X",
