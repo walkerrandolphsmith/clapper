@@ -1,10 +1,9 @@
 var hue = require("node-hue-api");
 var map = require('lodash.map');
+var getAddress = require('./getAddress');
 
 var api;
 var handleSideEffect = (huey) => api = huey;
-
-var findBridge = () => hue.nupnpSearch();
 
 var getLightId = (lights, uid) => {
     var keyToFind = 0;
@@ -16,9 +15,7 @@ var getLightId = (lights, uid) => {
     return keyToFind;
 };
 
-var getConfig = (username, uid) => findBridge()
-    .then(bridges => bridges[0])
-    .then(bridge => bridge.ipaddress)
+var getConfig = (username, uid) => getAddress()
     .then(host => new hue.HueApi(host, username))
     .then(handleSideEffect)
     .then(api => api.getFullState())

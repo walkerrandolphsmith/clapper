@@ -14,19 +14,36 @@ Turn your Hue lights into clap on lights with Tessel.
 
 https://www.developers.meethue.com/documentation/getting-started
 
-1. Find the IP address of your Hue Bridge by running `node ./findBrdige`
+1. Find the IP address of your Hue Bridge by running `node ./getAddress.js`
 2. Navigate to the following url in a web broswer `http://<your-ip>/debug/clip.html`
-3. Make a POST to the url `/api/` with the following post body where `username` is replace with a provided name
+3. Make a POST to the url `/api/` with the following post
 ```
-{"devicetype":"my_hue_app#iphone username"}
+{"devicetype":"my_hue_app#iphone clapper"}
 ```
+4. Get the id of the light you want to turn into a clapper by running
+ `node ./setup/index` The results should contain the lights known by the bridge and we want to 
+ grab the `uniqueid`.
+
+
+### Configure clapper
+We need to put the IP address (1), userId (3) and light (4) found in Configure HueBridge section
+into a file:
+Create a `env.json` file at the root of this repo
+```
+{
+  "HUE_HOST": "X.X.X.X",
+  "HUE_USER": "XXXXXXXXXXXX",
+  "BEDROOM_LIGHT": "XX:XX:XX:XX:XX:XX:XX:XX-XX"
+}
+```
+
 
 ### Configuring Tessel
 
 1. `npm install -g t2-cli`
 2. `t2 list`
 3. `t2 rename clapper`
-4. 't2 init'
+4. `t2 init`
 
 
 ### Testing Code on Tessel
@@ -34,9 +51,4 @@ https://www.developers.meethue.com/documentation/getting-started
 
 
 ### Deploy to Tessel
-```t2 push index.js```
-
-
-
-### Run
-```tessel run index.js```
+`t2 push index.js`
