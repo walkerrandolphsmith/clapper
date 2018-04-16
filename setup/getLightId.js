@@ -20,6 +20,6 @@ getAddress()
         console.log({
             "HUE_HOST": ipAddress,
             "HUE_USER": username,
-            "BEDROOM_LIGHT": "XX:XX:XX:XX:XX:XX:XX:XX-XX"
+            "LIGHT_ID": "XX:XX:XX:XX:XX:XX:XX:XX-XX"
         })
     });

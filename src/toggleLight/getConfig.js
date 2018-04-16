@@ -1,6 +1,6 @@
 var hue = require("node-hue-api");
 var map = require('lodash.map');
-var getAddress = require('./getAddress');
+var getAddress = require('./../common/getAddress');
 
 var api;
 var handleSideEffect = (huey) => api = huey;

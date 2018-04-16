@@ -20,19 +20,17 @@ https://www.developers.meethue.com/documentation/getting-started
 ```
 {"devicetype":"my_hue_app#iphone clapper"}
 ```
-4. Get the id of the light you want to turn into a clapper by running
- `node ./setup/getLightId.js <your-userId>` The results should contain the lights known by the bridge and we want to 
- grab the `uniqueid` with the format "XX:XX:XX:XX:XX:XX:XX:XX-XX".
+4. Add lights to a group named `CLAPPER` using the Hue app.
 
 
 ### Configure clapper
-Now using the `username` and `lightId` from steps 3 and 4 in Configure Hue Bridge
-run `node ./setup/ <your-userId> <your-lightId>` to generate a `env.json` file like the one shown below:
+Now using the `username` from steps 3 in Configure Hue Bridge
+run `node ./setup/ <your-userId>` to generate a `env.json` file like the one shown below:
 ```
 {
   "HUE_HOST": "X.X.X.X",
   "HUE_USER": "XXXXXXXXXXXX",
-  "BEDROOM_LIGHT": "XX:XX:XX:XX:XX:XX:XX:XX-XX"
+  "GROUP_NAME": "CLAPPER"
 }
 ```
 
@@ -43,7 +41,8 @@ run `node ./setup/ <your-userId> <your-lightId>` to generate a `env.json` file l
 2. `t2 list`
 3. `t2 rename clapper`
 4. `t2 init`
-
+# Add tessel to the same local network as your hue bridge
+5.  `t2 wifi -n <network-name> -p <password>`
 
 ### Testing Code on Tessel
 `t2 run index.js`
