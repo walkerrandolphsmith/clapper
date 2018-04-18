@@ -37,11 +37,12 @@ run `node ./setup/ <your-userId>` to generate a `env.json` file like the one sho
 
 ### Configuring Tessel
 
+The Tessel must be connected to the same network as your hue bridge
+
 1. `npm install -g t2-cli`
 2. `t2 list`
 3. `t2 rename clapper`
 4. `t2 init`
-# Add tessel to the same local network as your hue bridge
 5.  `t2 wifi -n <network-name> -p <password>`
 
 ### Testing Code on Tessel
